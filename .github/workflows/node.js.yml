@@ -16,5 +16,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn
-      - run: pm2 start -f toir427/index.js
-      - run: pm2 start -f essentialwords/index.js
+      - run: forever start toir427/index.js
+      - run: forever start essentialwords/index.js
