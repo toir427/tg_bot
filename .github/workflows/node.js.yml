@@ -7,12 +7,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    runs-on: self-hosted
 
     steps:
       - uses: actions/checkout@v3
@@ -20,6 +15,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm i
-      #- run: pm2 start toir427/index.js
-      #- run: pm2 start essentialwords/index.js
+      - run: yarn
+      - run: pm2 restart toir427/index.js
+      - run: pm2 restart essentialwords/index.js
