@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "scripts": {
+    "toir": "nodemon toir427/index.js",
+    "es4": "nodemon essentialwords/index.js",
+    "num": "nodemon ex/number.js",
+    "inline": "nodemon eng4/search.js",
+    "photo": "nodemon photo.js",
+    "quiz": "nodemon quiz.js",
+    "crud": "nodemon --trace-deprecation crud/index.js"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "node-fetch": "^3.3.2",
+    "node-telegram-bot-api": "^0.64.0",
+    "nodemon": "^3.0.2"
+  }
+}
