@@ -15,6 +15,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: yarn
+      - run: npm i
       - run: forever start toir427/index.js
       - run: forever start essentialwords/index.js
