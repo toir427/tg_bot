@@ -21,5 +21,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm i
-      - run: pm2 restart toir427/index.js
-      - run: pm2 restart essentialwords/index.js
+      - run: pm2 start toir427/index.js
+      - run: pm2 start essentialwords/index.js
