@@ -33,8 +33,8 @@ bot.onText(/^\/start$/, function (ctx, m) {
             ]
         }
     }).then(r => {
-        bot.sendMessage(CHANNEL_USERNAME, "```\n" + JSON.stringify(r) + "```", {
+        /*bot.sendMessage(CHANNEL_USERNAME, "```\n" + JSON.stringify(r) + "```", {
             parse_mode: 'MarkdownV2'
-        })
+        })*/
     });
 });

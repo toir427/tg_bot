@@ -19,14 +19,14 @@ bot.onText(/^\/start$/, function (ctx) {
         // type: 'channel',
         // user: type: 'private',
 
-        if (Array.isArray(r)) {
+        /*if (Array.isArray(r)) {
             for (let i = 0; i < r.length; i++) {
                 console.log('r: ', r[i])
                 console.log(r[i].message.chat)
             }
         } else {
             console.log('r: ', r)
-        }
+        }*/
 
     });
 
@@ -34,10 +34,7 @@ bot.onText(/^\/start$/, function (ctx) {
         //parse_mode: 'MarkdownV2',
         reply_markup: {
             inline_keyboard: [
-                [{
-                    text: 'Essential Words EN/UZ',
-                    url: 'https://t.me/essentialwords_bot'
-                }]
+                [{text: 'Essential Words EN/UZ', url: 'https://t.me/essentialwords_bot'}]
             ]
         }
     });
