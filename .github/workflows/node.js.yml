@@ -17,5 +17,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: cp .env.prod .env
       - run: npm i
-      #- run: forever start toir427/index.js
-      - run: forever start essentialwords/index.js
+      - run: forever restart toir427/index.js
+      - run: forever restart essentialwords/index.js
