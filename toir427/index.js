@@ -2,7 +2,7 @@ import TelegramBot from "node-telegram-bot-api";
 import {config} from "dotenv";
 
 config()
-const bot = new TelegramBot(process.env.QU17_BOT_TOKEN, {polling: true});
+const bot = new TelegramBot(process.env.TOIR_BOT_TOKEN, {polling: true});
 
 bot.onText(/^\/start$/, function (ctx) {
     const {chat: {id: chatId}} = ctx;
@@ -12,13 +12,13 @@ bot.onText(/^\/start$/, function (ctx) {
             if (u.message != null) {
                 const json = JSON.stringify(u.message);
                 bot.sendMessage(process.env.CHANNEL_USERNAME, "```\n" + json + "```", {
-                    parse_mode: 'markdown'
+                    parse_mode: 'MarkdownV2'
                 });
             }
         }
     });
 
-    bot.sendMessage(chatId, "Our Projects/Apps\n\n@essentialwords_bot", {
+    bot.sendMessage(chatId, "Our Projects/Apps\n\n", {
         //parse_mode: 'MarkdownV2',
         reply_markup: {
             inline_keyboard: [

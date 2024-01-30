@@ -12,7 +12,7 @@ bot.onText(/^\/start$/, function (ctx, m) {
             if (u.message != null) {
                 const json = JSON.stringify(u.message);
                 bot.sendMessage(process.env.CHANNEL_USERNAME, "```\n" + json + "```", {
-                    parse_mode: 'markdown'
+                    parse_mode: 'MarkdownV2'
                 });
             }
         }
