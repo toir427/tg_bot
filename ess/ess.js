@@ -1,6 +1,6 @@
-import TelegramBot from "node-telegram-bot-api";
-import fetch from "node-fetch";
-import * as fs from "fs";
+const TelegramBot = require('node-telegram-bot-api')
+const fetch = require('node-fetch');
+const fs = require('node:fs');
 
 const jsonPath = "./ess/ex/essential_words.json";
 const questions = JSON.parse(fs.readFileSync(jsonPath, "utf8"));

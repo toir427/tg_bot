@@ -1,14 +1,14 @@
 import TelegramBot from "node-telegram-bot-api";
+import {config} from "dotenv";
+config()
 
 // @essentialwords_bot
-const TOKEN = '5373770672:AAGBEgTZebmXsMHE-P1Ie6i5zjXiaCder74';
-const CHANNEL_USERNAME = '@te3tify';
-const bot = new TelegramBot(TOKEN, {polling: true});
+const bot = new TelegramBot(process.env.BOT_TOKEN, {polling: true});
 
 bot.onText(/^\/start$/, function (ctx, m) {
     const {chat: {id: chatId}} = ctx;
 
-    /*bot.getChat(CHANNEL_USERNAME)
+    /*bot.getChat(process.env.CHANNEL_USERNAME)
         .then(r => {
             console.log('chat: ', r)
 
@@ -33,7 +33,7 @@ bot.onText(/^\/start$/, function (ctx, m) {
             ]
         }
     }).then(r => {
-        /*bot.sendMessage(CHANNEL_USERNAME, "```\n" + JSON.stringify(r) + "```", {
+        /*bot.sendMessage(process.env.CHANNEL_USERNAME, "```\n" + JSON.stringify(r) + "```", {
             parse_mode: 'MarkdownV2'
         })*/
     });

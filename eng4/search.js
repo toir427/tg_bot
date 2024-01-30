@@ -1,4 +1,4 @@
-import TelegramBot from "node-telegram-bot-api";
+const TelegramBot = require('node-telegram-bot-api')
 
 // @qu17bot
 // 5862280064:AAG5JzdPaFbdK3j0SffBdSt2XDugD6jYU-I

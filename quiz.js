@@ -1,6 +1,6 @@
-import TelegramBot from "node-telegram-bot-api";
-import fetch from "node-fetch";
-import * as fs from "fs";
+const TelegramBot = require('node-telegram-bot-api')
+const fetch = require('node-fetch');
+const fs = require('node:fs');
 
 // @qumebot
 const token = '6624341730:AAHjTjgUiuoiQgDfheney6Ays3NUdD4NXu4';

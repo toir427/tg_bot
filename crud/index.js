@@ -1,5 +1,5 @@
-import fetch from "node-fetch";
-import TelegramBot from "node-telegram-bot-api";
+const TelegramBot = require('node-telegram-bot-api')
+const fetch = require('node-fetch');
 
 // @zmp3bot
 const token = '6782407164:AAF6aFQemOebJ_ejwv5uRY7iq18Y1wDUAPI';
