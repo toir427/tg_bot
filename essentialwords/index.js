@@ -2,18 +2,21 @@ import TelegramBot from "node-telegram-bot-api";
 import {config} from "dotenv";
 config()
 
-// @essentialwords_bot
-const bot = new TelegramBot(process.env.BOT_TOKEN, {polling: true});
+const bot = new TelegramBot(process.env.ESS_BOT_TOKEN, {polling: true});
 
 bot.onText(/^\/start$/, function (ctx, m) {
     const {chat: {id: chatId}} = ctx;
 
-    /*bot.getChat(process.env.CHANNEL_USERNAME)
-        .then(r => {
-            console.log('chat: ', r)
-
-            bot.sendMessage(r.id, 'Hi there');
-        });*/
+    bot.getUpdates().then(r => {
+        for (let u of r) {
+            if (u.message != null) {
+                const json = JSON.stringify(u.message);
+                bot.sendMessage(process.env.CHANNEL_USERNAME, "```\n" + json + "```", {
+                    parse_mode: 'markdown'
+                });
+            }
+        }
+    });
 
     bot.sendMessage(chatId, 'Essential Words', {
         reply_markup: {
@@ -32,9 +35,5 @@ bot.onText(/^\/start$/, function (ctx, m) {
                 ]
             ]
         }
-    }).then(r => {
-        /*bot.sendMessage(process.env.CHANNEL_USERNAME, "```\n" + JSON.stringify(r) + "```", {
-            parse_mode: 'MarkdownV2'
-        })*/
     });
 });

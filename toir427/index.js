@@ -1,33 +1,21 @@
-const TelegramBot = require('node-telegram-bot-api')
+import TelegramBot from "node-telegram-bot-api";
+import {config} from "dotenv";
 
-// @toir427_bot
-const TOKEN = '349160873:AAFa8Nv0EIfFRhT86kg1HPu8DCe7tRvBTAE';
-const bot = new TelegramBot(TOKEN, {polling: true});
+config()
+const bot = new TelegramBot(process.env.QU17_BOT_TOKEN, {polling: true});
 
 bot.onText(/^\/start$/, function (ctx) {
     const {chat: {id: chatId}} = ctx;
 
-    bot.getChat('@te3tify')
-        .then(r => {
-            console.log('chat: ', r)
-
-            bot.sendMessage(r.id, 'Hi there');
-        });
-
     bot.getUpdates().then(r => {
-
-        // type: 'channel',
-        // user: type: 'private',
-
-        /*if (Array.isArray(r)) {
-            for (let i = 0; i < r.length; i++) {
-                console.log('r: ', r[i])
-                console.log(r[i].message.chat)
+        for (let u of r) {
+            if (u.message != null) {
+                const json = JSON.stringify(u.message);
+                bot.sendMessage(process.env.CHANNEL_USERNAME, "```\n" + json + "```", {
+                    parse_mode: 'markdown'
+                });
             }
-        } else {
-            console.log('r: ', r)
-        }*/
-
+        }
     });
 
     bot.sendMessage(chatId, "Our Projects/Apps\n\n@essentialwords_bot", {

@@ -10,7 +10,7 @@ const questions = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
 const randQuestion = (questions) => questions[Math.floor(Math.random() * questions.length)];
 const singles = () => questions.filter(question => question.type === 'single_choice');
 
-const token = process.env.BOT_TOKEN;
+const token = process.env.QU17_BOT_TOKEN;
 const bot = new TelegramBot(token, {polling: true});
 bot.on("polling_error", console.log)
 
