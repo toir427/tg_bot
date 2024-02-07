@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 
 // @qu17bot
-const token = '5862280064:AAG5JzdPaFbdK3j0SffBdSt2XDugD6jYU-I';
+const token = '5862280064:AAExgHvPth5KiPSfvIWVgcn73stR_1nuTRc';
 const bot = new TelegramBot(token, {polling: true});
 
 bot.onText(/\/echo (.+)/, (msg, match) => {

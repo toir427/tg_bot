@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api')
 
 // @qu17bot
-// 5862280064:AAG5JzdPaFbdK3j0SffBdSt2XDugD6jYU-I
+// 5862280064:AAExgHvPth5KiPSfvIWVgcn73stR_1nuTRc
 
 // @e84_bot
 const token = '6716128964:AAEh-UqBmOpTJuiEsU7fzc-FfFrHDeBgvOg';

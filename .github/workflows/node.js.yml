@@ -19,3 +19,4 @@ jobs:
       - run: npm i
       - run: forever restart toir427/index.js
       - run: forever restart essentialwords/index.js
+      - run: forever restart qu17/test.js
