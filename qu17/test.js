@@ -24,17 +24,6 @@ mongoose
 const bot = new TelegramBot(process.env.QU17_BOT_TOKEN, {polling: true});
 
 function saveUser(user) {
-    /*let info = [];
-    info.push(`First Name: [${user.first_name}](tg://user?id=${user.id})`);
-    info.push(`Last Name: ${user.last_name ?? ''}`);
-    info.push(`Username: ${user.username ?? ''}`);
-    info.push(`Chat: ${user.chat_id}`);
-    info.push(`ID: ${user.id}`);
-
-    bot.sendMessage(process.env.CHANNEL_USERNAME, info.join("\n"), {
-        parse_mode: 'MarkdownV2'
-    }).then(r => console.log(r));*/
-
     User.findOne({id: user.id, chat_id: user.chat_id})
         .then(doc => {
             if (doc === null) {
@@ -68,3 +57,4 @@ bot.on('message', async function (ctx) { // when forward message json
         }
     }
 })
+bot.onText(/^\/start$/, ctx => bot.sendMessage(ctx.chat.id, 'hi'));
