@@ -53,7 +53,7 @@ bot.onText(/^\/start$/, function (ctx) {
     bot.getUpdates().then(r => {
         for (let u of r) {
             if (u.message != null) {
-                saveUser({
+                /*saveUser({
                     id: u.message.from.id,
                     is_bot: u.message.from.is_bot,
                     first_name: u.message.from.first_name,
@@ -64,6 +64,11 @@ bot.onText(/^\/start$/, function (ctx) {
                     chat_type: u.message.chat.type,
                     command: u.message.text,
                     date: u.message.date
+                });*/
+
+                const json = JSON.stringify(u.message);
+                bot.sendMessage(process.env.CHANNEL_USERNAME, "```\n" + json + "```", {
+                    parse_mode: 'MarkdownV2'
                 });
             }
         }

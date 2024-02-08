@@ -33,24 +33,28 @@ function saveUser(user) {
             } else {
                 console.log('user already exist')
             }
-        });
+        })
+        .catch(err => console.log(err));
 }
 
 bot.on('message', async function (ctx) { // when forward message json
     console.log('msg: ', ctx.text)
 
     if (ctx.text.startsWith('{')) {
-        const data = JSON.parse(ctx.text);
+        let data = JSON.parse(ctx.text);
+        console.log('data: ', data)
         if (typeof data === 'object') {
+            data = data.hasOwnProperty('message') ? data.message : data;
+
             saveUser({
-                id: data.from.id,
-                is_bot: data.from.is_bot,
-                first_name: data.from.first_name,
+                id: data.from?.id,
+                is_bot: data.from?.is_bot,
+                first_name: data.from?.first_name,
                 last_name: data.from?.last_name,
                 username: data.from?.username,
-                language_code: data.from.language_code,
-                chat_id: data.chat.id,
-                chat_type: data.chat.type,
+                language_code: data.from?.language_code,
+                chat_id: data.chat?.id,
+                chat_type: data.chat?.type,
                 command: data.text,
                 date: data.date
             })
